@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Interpersonal & Team Skills</title>
+  <style>
+    :root{
+      /* Group hues: top header uses dark, sub/data use light of same hue */
+      --int-dark:#0b3a82;   --int-light:#e0f2fe;   /* Integration = blue */
+      --scp-dark:#8a5a00;   --scp-light:#fff3c4;   /* Scope = amber */
+      --sch-dark:#0b6961;   --sch-light:#ccfbf1;   /* Schedule = teal */
+      --cst-dark:#8a1c2b;   --cst-light:#ffe4e6;   /* Cost = rose */
+      --qlt-dark:#46620b;   --qlt-light:#ecfccb;   /* Quality = lime */
+      --res-dark:#2b2f77;   --res-light:#eef2ff;   /* Resources = indigo */
+      --com-dark:#4b2d7c;   --com-light:#ede9fe;   /* Communication = purple */
+      --rsk-dark:#7a3f00;   --rsk-light:#ffedd5;   /* Risk = orange */
+      --prc-dark:#0b3a82;   --prc-light:#dbeafe;   /* Procurement = sky */
+      --stk-dark:#0e5b2a;   --stk-light:#dcfce7;   /* Stakeholder = green */
+    }
+    body{font-family:"Segoe UI",sans-serif;background:#f6fbff;color:#1e293b;padding:28px;}
+    h1{margin-bottom:16px;font-size:22px}
+    .table-wrap{overflow:auto}
+    table{
+      width:100%;
+      border-collapse:separate; border-spacing:0; min-width:1200px; background:#fff;
+      border-radius:12px; box-shadow:0 14px 28px rgba(18,38,63,.12),0 10px 10px rgba(18,38,63,.08);
+    }
+    th,td{padding:10px 12px; border:1px solid #edf3fb; text-align:center; white-space:nowrap}
+    td.skill{text-align:left; font-weight:600; background:#f0f6ff}
+
+    /* Top header (Knowledge Area) — darker hue of each group */
+    thead tr:first-child th.ka-int{background:var(--int-dark); color:#fff; font-weight:700}
+    thead tr:first-child th.ka-scp{background:var(--scp-dark); color:#fff; font-weight:700}
+    thead tr:first-child th.ka-sch{background:var(--sch-dark); color:#fff; font-weight:700}
+    thead tr:first-child th.ka-cst{background:var(--cst-dark); color:#fff; font-weight:700}
+    thead tr:first-child th.ka-qlt{background:var(--qlt-dark); color:#fff; font-weight:700}
+    thead tr:first-child th.ka-res{background:var(--res-dark); color:#fff; font-weight:700}
+    thead tr:first-child th.ka-com{background:var(--com-dark); color:#fff; font-weight:700}
+    thead tr:first-child th.ka-rsk{background:var(--rsk-dark); color:#fff; font-weight:700}
+    thead tr:first-child th.ka-prc{background:var(--prc-dark); color:#fff; font-weight:700}
+    thead tr:first-child th.ka-stk{background:var(--stk-dark); color:#fff; font-weight:700}
+
+    /* Sub headers (process) and all data cells in the group — lighter hue */
+    .grp-int{background:var(--int-light)}
+    .grp-scp{background:var(--scp-light)}
+    .grp-sch{background:var(--sch-light)}
+    .grp-cst{background:var(--cst-light)}
+    .grp-qlt{background:var(--qlt-light)}
+    .grp-res{background:var(--res-light)}
+    .grp-com{background:var(--com-light)}
+    .grp-rsk{background:var(--rsk-light)}
+    .grp-prc{background:var(--prc-light)}
+    .grp-stk{background:var(--stk-light)}
+
+    /* 3D tick icon */
+    .tick{
+      display:inline-block; width:24px; height:24px;
+      background:linear-gradient(145deg,#34d399,#059669);
+      border-radius:50%;
+      box-shadow:0 4px 6px rgba(0,0,0,.2), inset 0 -2px 4px rgba(255,255,255,.45);
+      position:relative; cursor:pointer;
+    }
+    .tick::before{
+      content:"✓";
+      position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+      color:#fff; font-weight:700; font-size:16px; text-shadow:0 1px 2px rgba(0,0,0,.35);
+    }
+
+    /* Horizontal tooltip (right side, wide) */
+    .tick[data-tooltip] {
+      position: relative;
+      cursor: pointer;
+    }
+    .tick[data-tooltip]:hover::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      left: 50%;
+      top: 130%;
+      transform: translateX(-50%);
+      background: #fff;
+      color: #1b3559;
+      border-radius: 8px;
+      box-shadow: 0 4px 24px 0 rgba(45,70,100,0.13);
+      padding: 10px 18px;
+      min-width: 220px;
+      max-width: 370px;
+      font-size: 13px;
+      line-height: 1.5;
+      white-space: normal;
+      z-index: 99;
+      border: 1.5px solid #bee3c8;
+      text-align: left;
+    }
+    .tick[data-tooltip]:hover::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 122%;
+      transform: translateX(-50%);
+      border-width: 7px 7px 0 7px;
+      border-style: solid;
+      border-color: #fff transparent transparent transparent;
+      z-index: 98;
+      filter: drop-shadow(0 2px 2px #bee3c8);
+    }
+  </style>
+</head>
+<body>
+  <h1>Interpersonal and Team Skills</h1>
+  <div class="table-wrap">
+    <table>
+      <!-- Use colgroup to guarantee exact grouping color application -->
+      <colgroup>
+        <col class="col-skill">
+        <!-- Integration group: 3 process columns -->
+        <col class="grp-int"><col class="grp-int"><col class="grp-int">
+        <!-- Scope group: 2 process columns -->
+        <col class="grp-scp"><col class="grp-scp">
+        <!-- Schedule: 1 -->
+        <col class="grp-sch">
+        <!-- Cost: 1 -->
+        <col class="grp-cst">
+        <!-- Quality: 1 -->
+        <col class="grp-qlt">
+        <!-- Resources: 4 -->
+        <col class="grp-res"><col class="grp-res"><col class="grp-res"><col class="grp-res">
+        <!-- Communication: 3 -->
+        <col class="grp-com"><col class="grp-com"><col class="grp-com">
+        <!-- Risk: 5 -->
+        <col class="grp-rsk"><col class="grp-rsk"><col class="grp-rsk"><col class="grp-rsk"><col class="grp-rsk">
+        <!-- Procurement: 1 -->
+        <col class="grp-prc">
+        <!-- Stakeholder: 2 -->
+        <col class="grp-stk"><col class="grp-stk">
+      </colgroup>
+
+      <thead>
+        <!-- Top header (Knowledge Areas) — darker hue cells -->
+        <tr>
+          <th rowspan="2">Skill</th>
+          <th class="ka-int" colspan="3">Integration</th>
+          <th class="ka-scp" colspan="2">Scope</th>
+          <th class="ka-sch">Schedule</th>
+          <th class="ka-cst">Cost</th>
+          <th class="ka-qlt">Quality</th>
+          <th class="ka-res" colspan="4">Resources</th>
+          <th class="ka-com" colspan="3">Communication</th>
+          <th class="ka-rsk" colspan="5">Risk</th>
+          <th class="ka-prc">Procurement</th>
+          <th class="ka-stk" colspan="2">Stakeholder</th>
+        </tr>
+        <!-- Sub header (Processes) — lighter hue via colgroup classes -->
+        <tr>
+          <th class="grp-int">Develop Charter</th>
+          <th class="grp-int">Develop Plan</th>
+          <th class="grp-int">Manage Knowledge</th>
+
+          <th class="grp-scp">Collect Req</th>
+          <th class="grp-scp">Define Scope</th>
+
+          <th class="grp-sch">Plan Schedule</th>
+          <th class="grp-cst">Plan Cost</th>
+          <th class="grp-qlt">Plan Quality</th>
+
+          <th class="grp-res">Acquire Res</th>
+          <th class="grp-res">Develop Team</th>
+          <th class="grp-res">Manage Team</th>
+          <th class="grp-res">Control Res</th>
+
+          <th class="grp-com">Plan Comms</th>
+          <th class="grp-com">Manage Comms</th>
+          <th class="grp-com">Monitor Comms</th>
+
+          <th class="grp-rsk">Identify Risks</th>
+          <th class="grp-rsk">Qualitative RA</th>
+          <th class="grp-rsk">Quantitative RA</th>
+          <th class="grp-rsk">Plan Responses</th>
+          <th class="grp-rsk">Implement Responses</th>
+
+          <th class="grp-prc">Conduct Procurements</th>
+
+          <th class="grp-stk">Manage Stakeholder</th>
+          <th class="grp-stk">Monitor Stakeholder</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <!-- Active listening -->
+        <tr>
+          <td class="skill">Active listening</td>
+
+          <!-- Integration -->
+          <td></td>
+          <td></td>
+          <td>
+            <span class="tick" data-tooltip="Integration — Manage Project Knowledge: Use active listening during lessons learned workshops and knowledge-sharing sessions to capture nuanced insights and avoid bias. PMI exam example: The PM paraphrases comments from team members and confirms understanding before recording lessons."></span>
+          </td>
+
+          <!-- Scope -->
+          <td></td>
+          <td></td>
+
+          <!-- Schedule -->
+          <td></td>
+
+          <!-- Cost -->
+          <td></td>
+
+          <!-- Quality -->
+          <td></td>
+
+          <!-- Resources -->
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+
+          <!-- Communication -->
+          <td></td>
+          <td>
+            <span class="tick" data-tooltip="Communication — Manage Communications: Practice active listening in stakeholder meetings to clarify requirements and expectations across cultures and roles. PMI exam example: The PM repeats back stakeholder statements to validate understanding before documenting decisions."></span>
+          </td>
+          <td></td>
+
+          <!-- Risk -->
+          <td></td><td></td><td></td><td></td><td></td>
+
+          <!-- Procurement -->
+          <td></td>
+
+          <!-- Stakeholder -->
+          <td></td>
+          <td>
+            <span class="tick" data-tooltip="Stakeholder — Manage Stakeholder Engagement: Use active listening to de-escalate concerns and surface unspoken needs, building trust with critical stakeholders. PMI exam example: A sponsor expresses dissatisfaction; the PM listens thoroughly, reflects the concern, and proposes options."></span>
+          </td>
+        </tr>
+
+        <!-- Communication styles assessment -->
+        <tr>
+          <td class="skill">Communication styles assessment</td>
+
+          <!-- Integration -->
+          <td></td><td></td><td></td>
+
+          <!-- Scope -->
+          <td></td><td></td>
+
+          <!-- Schedule -->
+          <td></td>
+
+          <!-- Cost -->
+          <td></td>
+
+          <!-- Quality -->
+          <td></td>
+
+          <!-- Resources -->
+          <td></td><td></td><td></td><td></td>
+
+          <!-- Communication -->
+          <td>
+            <span class="tick" data-tooltip="Communication — Plan Communications: Assess stakeholder and team communication styles (formal vs. informal, high- vs. low-context) to tailor channels, frequency, tone, and languages in the communications plan. PMI exam example: The PM adapts messaging cadence and format for a global team with varied cultural norms."></span>
+          </td>
+          <td></td>
+          <td></td>
+
+          <!-- Risk -->
+          <td></td><td></td><td></td><td></td><td></td>
+
+          <!-- Procurement -->
+          <td></td>
+
+          <!-- Stakeholder -->
+          <td></td><td></td>
+        </tr>
+		<tr>
+  <td class="skill">Conflict management</td>
+  <td><span class="tick" data-tooltip="Integration — Develop Charter: Resolve conflicts in defining objectives. PMI exam: Sponsor and PM disagree on scope boundaries."></span></td>
+  <td><span class="tick" data-tooltip="Integration — Develop Plan: Resolve conflicts among managers when consolidating subsidiary plans. PMI exam: Resource manager disputes schedule feasibility."></span></td>
+  <td></td><td></td><td></td><td></td><td></td><td></td>
+  <td></td><td><span class="tick" data-tooltip="Resources — Develop Team: Handle team disputes to foster collaboration. PMI exam: Team members argue over task ownership."></span></td>
+  <td><span class="tick" data-tooltip="Resources — Manage Team: Apply resolution strategies to improve performance. PMI exam: PM mediates disagreement over design approach."></span></td>
+  <td></td><td></td>
+  <td><span class="tick" data-tooltip="Communication — Manage Communications: Resolve misinterpretations and clarify messaging. PMI exam: Stakeholders misread a report and raise concerns."></span></td>
+  <td></td><td></td><td></td><td></td><td></td>
+  <td></td>
+  <td><span class="tick" data-tooltip="Stakeholder — Manage Engagement: Balance conflicting stakeholder demands. PMI exam: Two stakeholders request opposing features."></span></td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td class="skill">Cultural awareness</td>
+  <!-- Integration -->
+  <td></td><td></td><td></td>
+  <!-- Scope -->
+  <td></td><td></td>
+  <!-- Schedule -->
+  <td></td>
+  <!-- Cost -->
+  <td></td>
+  <!-- Quality -->
+  <td></td>
+  <!-- Resources -->
+  <td></td><td></td><td></td><td></td>
+  <!-- Communication -->
+  <td><span class="tick" data-tooltip="Communication — Plan Communications: Recognize cultural differences (high/low context, direct/indirect) to tailor channels, cadence, and tone. PMI exam example: PM adjusts reporting format for a multicultural audience."></span></td>
+  <td><span class="tick" data-tooltip="Communication — Manage Communications: Apply cultural awareness during meetings and messaging to reduce misinterpretation. PMI exam example: PM adapts wording for non-native speakers and avoids idioms."></span></td>
+  <td></td>
+  <!-- Risk -->
+  <td></td><td></td><td></td><td></td><td></td>
+  <!-- Procurement -->
+  <td></td>
+  <!-- Stakeholder -->
+  <td><span class="tick" data-tooltip="Stakeholder — Manage Stakeholder Engagement: Respect local customs and cultural norms to build trust and participation. PMI exam example: PM aligns engagement approach with regional practices."></span></td>
+  <td><span class="tick" data-tooltip="Stakeholder — Monitor Stakeholder Engagement: Monitor cultural factors that influence sentiment and responsiveness; adjust engagement strategies accordingly. PMI exam example: PM notices cultural norms affecting feedback timing and modifies follow-ups."></span></td>
+</tr>
+
+<tr>
+  <td class="skill">Decision making</td>
+  <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+  <td></td><td></td><td></td>
+  <td><span class="tick" data-tooltip="Resources — Control Resources: Make decisions when reallocating limited assets. PMI exam: PM chooses which team gets priority equipment."></span></td>
+  <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+  <td></td>
+  <td></td><td></td><td></td>
+</tr>
+
+<tr>
+  <td class="skill">Emotional intelligence</td>
+  <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+  <td></td><td></td><td></td>
+  <td><span class="tick" data-tooltip="Resources — Control Resources: Emotional intelligence helps manage stress and relationships when reallocating assets. PMI exam example: PM recognizes team frustration and adjusts assignments accordingly."></span></td>
+  <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+  <td></td><td></td><td></td><td></td>
+</tr>
+
+<tr>
+  <td class="skill">Facilitation</td>
+  <td><span class="tick" data-tooltip="Integration — Develop Charter: Facilitate sessions to align stakeholders on objectives."></span></td>
+  <td><span class="tick" data-tooltip="Integration — Develop Plan: Facilitate workshops to integrate subsidiary plans."></span></td>
+  <td><span class="tick" data-tooltip="Integration — Manage Knowledge: Facilitate lessons learned meetings."></span></td>
+  <td><span class="tick" data-tooltip="Scope — Collect Requirements: Facilitate requirement workshops."></span></td>
+  <td><span class="tick" data-tooltip="Scope — Define Scope: Facilitate consensus on scope statement."></span></td>
+  <td></td><td></td><td></td>
+  <td></td><td></td><td></td><td></td>
+  <td></td><td></td><td></td>
+  <td><span class="tick" data-tooltip="Risk — Identify Risks: Facilitate brainstorming sessions."></span></td>
+  <td><span class="tick" data-tooltip="Risk — Qualitative RA: Facilitate prioritization of risks."></span></td>
+  <td><span class="tick" data-tooltip="Risk — Quantitative RA: Facilitate modeling discussions."></span></td>
+  <td><span class="tick" data-tooltip="Risk — Plan Responses: Facilitate planning workshops."></span></td>
+  <td></td>
+  <td></td><td></td><td></td>
+</tr>
+
+<tr>
+  <td class="skill">Influencing</td>
+  <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+  <td></td>
+  <td></td><td><span class="tick" data-tooltip="Resources — Develop Team: Influence team members to collaborate."></span></td>
+  <td><span class="tick" data-tooltip="Resources — Manage Team: Influence performance outcomes."></span></td>
+  <td><span class="tick" data-tooltip="Resources — Control Resources: Influence allocation decisions."></span></td>
+  <td></td><td></td><td></td>
+  <td></td><td></td><td></td><td></td>
+  <td><span class="tick" data-tooltip="Risk — Implement Responses: Influence stakeholders to support risk actions."></span></td>
+  <td></td><td></td><td></td>
+</tr>
+
+<tr>
+  <td class="skill">Leadership</td>
+  <td></td><td></td>
+  <td><span class="tick" data-tooltip="Integration — Manage Knowledge: Leadership guides knowledge sharing."></span></td>
+  <td></td><td></td><td></td><td></td><td></td>
+  <td></td><td></td><td></td><td></td>
+  <td></td><td></td><td></td>
+  <td></td><td></td><td></td><td></td><td></td>
+  <td></td>
+  <td><span class="tick" data-tooltip="Stakeholder — Manage Engagement: Leadership builds trust with stakeholders."></span></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td class="skill">Meeting management</td>
+  <td><span class="tick" data-tooltip="Integration — Develop Charter: Manage meetings to align objectives."></span></td>
+  <td><span class="tick" data-tooltip="Integration — Develop Plan: Manage planning meetings."></span></td>
+  <td></td><td></td><td></td><td></td><td></td><td></td>
+  <td></td><td></td><td></td><td></td>
+  <td></td>
+  <td><span class="tick" data-tooltip="Communication — Manage Communications: Meeting management ensures effective information flow."></span></td>
+  <td></td>
+  <td></td><td></td><td></td><td></td><td></td>
+  <td></td><td></td><td></td>
+</tr>
+
+<tr>
+  <td class="skill">Motivation</td>
+  <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+  <td></td>
+  <td></td><td><span class="tick" data-tooltip="Resources — Develop Team: Motivation improves team performance."></span></td>
+  <td></td><td></td>
+  <td></td><td></td><td></td>
+  <td></td><td></td><td></td><td></td><td></td>
+  <td></td><td></td><td></td>
+</tr>
+
+<tr>
+  <td class="skill">Negotiation</td>
+  <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+  <td></td>
+  <td><span class="tick" data-tooltip="Resources — Acquire Resources: Negotiate for needed staff/equipment."></span></td>
+  <td><span class="tick" data-tooltip="Resources — Develop Team: Negotiate roles and responsibilities."></span></td>
+  <td></td>
+  <td><span class="tick" data-tooltip="Resources — Control Resources: Negotiate usage conflicts."></span></td>
+  <td></td><td></td><td></td>
+  <td></td><td></td><td></td><td></td><td></td>
+  <td><span class="tick" data-tooltip="Procurement — Conduct Procurements: Negotiate contracts with vendors."></span></td>
+  <td><span class="tick" data-tooltip="Stakeholder — Manage Engagement: Negotiate stakeholder expectations."></span></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td class="skill">Networking</td>
+  <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+  <td></td><td></td><td></td><td></td>
+  <td></td>
+  <td><span class="tick" data-tooltip="Communication — Manage Communications: Networking expands information channels."></span></td>
+  <td></td>
+  <td></td><td></td><td></td><td></td><td></td>
+  <td></td>
+  <td></td><td><span class="tick" data-tooltip="Stakeholder — Manage Engagement: Networking builds stakeholder relationships."></span></td>
+</tr>
+
+<tr>
+  <td class="skill">Nominal group technique</td>
+  <td></td><td></td><td></td>
+  <td><span class="tick" data-tooltip="Scope — Collect Requirements: Use nominal group technique to prioritize requirements."></span></td>
+  <td></td>
+  <td></td><td></td><td></td>
+  <td></td><td></td><td></td><td></td>
+  <td></td><td></td><td></td>
+  <td></td><td></td><td></td><td></td><td></td>
+  <td></td><td></td><td></td>
+</tr>
+
+<tr>
+  <td class="skill">Observation / conversation</td>
+  <td></td><td></td><td></td>
+  <td><span class="tick" data-tooltip="Scope — Collect Requirements: Observe and converse with users to elicit requirements. PMI exam: PM shadows end-users to capture needs."></span></td>
+  <td></td>
+  <td></td><td></td><td></td>
+  <td></td><td></td><td></td><td></td>
+  <td></td>
+  <td></td>
+  <td><span class="tick" data-tooltip="Communication — Monitor Communications: Observe and converse to assess communication effectiveness. PMI exam: PM notices confusion in team updates and clarifies."></span></td>
+  <td></td><td></td><td></td><td></td><td></td>
+  <td></td>
+  <td><span class="tick" data-tooltip="Stakeholder — Manage Engagement: Use observation and conversation to understand stakeholder attitudes. PMI exam: PM meets informally with stakeholders to gauge support."></span></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td class="skill">Political awareness</td>
+  <td></td><td></td>
+  <td><span class="tick" data-tooltip="Integration — Manage Knowledge: Political awareness helps navigate organizational dynamics. PMI exam: PM recognizes hidden agendas in knowledge sharing."></span></td>
+  <td></td><td></td><td></td><td></td><td></td>
+  <td></td><td></td><td></td><td></td>
+  <td><span class="tick" data-tooltip="Communication — Plan Communications: Consider political context when planning communication. PMI exam: PM tailors reports to executive sensitivities."></span></td>
+  <td><span class="tick" data-tooltip="Communication — Manage Communications: Political awareness ensures messages are framed appropriately. PMI exam: PM adjusts tone for senior leadership."></span></td>
+  <td></td>
+  <td></td><td></td><td></td><td></td><td></td>
+  <td></td>
+  <td><span class="tick" data-tooltip="Stakeholder — Manage Engagement: Political awareness helps balance stakeholder power. PMI exam: PM identifies influential stakeholders."></span></td>
+  <td><span class="tick" data-tooltip="Stakeholder — Monitor Engagement: Monitor political factors affecting stakeholder support. PMI exam: PM tracks shifting alliances."></span></td>
+</tr>
+
+<tr>
+  <td class="skill">Team building</td>
+  <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+  <td></td>
+  <td></td>
+  <td><span class="tick" data-tooltip="Resources — Develop Team: Team building activities improve cohesion and morale. PMI exam: PM organizes team-building workshop to enhance collaboration."></span></td>
+  <td></td><td></td>
+  <td></td><td></td><td></td>
+  <td></td><td></td><td></td><td></td><td></td>
+  <td></td><td></td><td></td>
+</tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
