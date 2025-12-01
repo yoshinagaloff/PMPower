@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Scope Management</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Responsive CSS giữ nguyên như bản bạn đã OK -->
+  <style>
+    .wrap { box-sizing: border-box; padding-left: 12px; padding-right: 12px; margin: auto; }
+    @media screen and (max-width: 1024px) {
+      .wrap { max-width: 980px; padding-left: 18px; padding-right: 18px; }
+      .row { justify-content: center !important; }
+      .block { width: 92% !important; }
+      .ito-panel { flex-wrap: wrap; }
+      .ito-section { width: 48%; min-width: 220px; margin-bottom: 10px; }
+    }
+    @media screen and (max-width: 600px) {
+      .wrap { width:100%; padding:10px; }
+      .row { display:block; }
+      .block { width:100% !important; padding:14px !important; }
+      .ito-panel { display:block; }
+      .ito-section { width:100% !important; }
+    }
+  </style>
+</head>
+
+<body>
+<div class="wrap">
+<header>
+  <div class="header-title">Scope Management</div>
+  <div class="header-desc">
+    Click "Details" to open Inputs / Tools & Techniques / Outputs.
+  </div>
+  <div class="btn-group">
+    <button class="btn" id="expandAll">Expand all</button>
+    <button class="btn ghost" id="collapseAll">Collapse all</button>
+  </div>
+</header>
+
+<div class="stagger-container">
+
+<!-- 1. PLAN SCOPE MANAGEMENT -->
+<div class="row right">
+  <div class="block block-orange">
+    <div class="block-num">1</div>
+    <div class="block-main">
+      <div class="block-icon">
+        <!-- Calendar icon giữ nguyên -->
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+          <rect x="4" y="5" width="16" height="15" rx="3" stroke="#fa824c" stroke-width="2" fill="#fff7f3"/>
+          <rect x="8" y="2.5" width="1.7" height="4" rx="0.6" fill="#fa824c"/>
+          <rect x="14.3" y="2.5" width="1.7" height="4" rx="0.6" fill="#fa824c"/>
+          <rect x="8" y="10" width="8" height="5" rx="1.5" fill="#fa824c" fill-opacity="0.25"/>
+        </svg>
+      </div>
+
+      <div>
+        <div class="block-title">PLAN SCOPE MANAGEMENT</div>
+        <div class="block-desc">Define how the scope will be defined, validated, and controlled.</div>
+
+        <details>
+          <summary>Details: Inputs / Tools & Techniques / Outputs</summary>
+
+          <div class="ito-panel">
+
+            <div class="ito-section">
+              <div class="ito-illu">Inputs</div>
+              <ul>
+                <li>Project charter</li>
+                <li>Project management plan</li>
+                <li>Enterprise environmental factors</li>
+                <li>Organizational process assets</li>
+              </ul>
+            </div>
+
+            <div class="ito-section">
+              <div class="ito-illu">Tools & Techniques</div>
+              <ul>
+                <li>Expert judgment</li>
+                <li>Data analysis</li>
+                <li>Meetings</li>
+              </ul>
+            </div>
+
+            <div class="ito-section">
+              <div class="ito-illu">Outputs</div>
+              <ul>
+                <li>Scope management plan</li>
+                <li>Requirements management plan</li>
+              </ul>
+            </div>
+
+          </div>
+        </details>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 2. COLLECT REQUIREMENTS -->
+<div class="row left">
+  <div class="block block-green">
+    <div class="block-num">2</div>
+    <div class="block-main">
+      <div class="block-icon">
+        <!-- Book icon -->
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+          <rect x="5" y="4" width="14" height="18" rx="3" fill="#e6f7f2" stroke="#5ec2a7" stroke-width="2"/>
+          <path d="M7.5 8h9" stroke="#5ec2a7" stroke-width="1.4" stroke-linecap="round"/>
+          <path d="M7.5 12h7" stroke="#5ec2a7" stroke-width="1.4" stroke-linecap="round"/>
+          <path d="M7.5 16h5" stroke="#5ec2a7" stroke-width="1.4" stroke-linecap="round"/>
+        </svg>
+      </div>
+
+      <div>
+        <div class="block-title">COLLECT REQUIREMENTS</div>
+        <div class="block-desc">Determine and document stakeholder needs and requirements.</div>
+
+        <details>
+          <summary>Details: Inputs / Tools & Techniques / Outputs</summary>
+          <div class="ito-panel">
+
+            <div class="ito-section">
+              <div class="ito-illu">Inputs</div>
+              <ul>
+                <li>Project charter</li>
+                <li>Project management plan</li>
+                <li>Project documents</li>
+                <li>Business documents</li>
+                <li>Agreements</li>
+                <li>Enterprise environmental factors</li>
+                <li>Organizational process assets</li>
+              </ul>
+            </div>
+
+            <div class="ito-section">
+              <div class="ito-illu">Tools & Techniques</div>
+              <ul>
+                <li>Expert judgment</li>
+                <li>Data gathering</li>
+                <li>Data analysis</li>
+                <li>Decision making</li>
+                <li>Data representation</li>
+                <li>Interpersonal and team skills</li>
+                <li>Context diagram</li>
+                <li>Prototypes</li>
+              </ul>
+            </div>
+
+            <div class="ito-section">
+              <div class="ito-illu">Outputs</div>
+              <ul>
+                <li>Requirements documentation</li>
+                <li>Requirements traceability matrix</li>
+              </ul>
+            </div>
+
+          </div>
+        </details>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 3. DEFINE SCOPE -->
+<div class="row right">
+  <div class="block block-blue">
+    <div class="block-num">3</div>
+    <div class="block-main">
+      <div class="block-icon">
+        <!-- List icon -->
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+          <rect x="6" y="8" width="12" height="2" rx="1" fill="#53b5e6"/>
+          <rect x="6" y="14" width="12" height="2" rx="1" fill="#53b5e6"/>
+        </svg>
+      </div>
+
+      <div>
+        <div class="block-title">DEFINE SCOPE</div>
+        <div class="block-desc">Develop a detailed description of the project and product.</div>
+
+        <details>
+          <summary>Details: Inputs / Tools & Techniques / Outputs</summary>
+          <div class="ito-panel">
+
+            <div class="ito-section">
+              <div class="ito-illu">Inputs</div>
+              <ul>
+                <li>Project charter</li>
+                <li>Project management plan</li>
+                <li>Project documents</li>
+                <li>Enterprise environmental factors</li>
+                <li>Organizational process assets</li>
+              </ul>
+            </div>
+
+            <div class="ito-section">
+              <div class="ito-illu">Tools & Techniques</div>
+              <ul>
+                <li>Expert judgment</li>
+                <li>Data analysis</li>
+                <li>Decision making</li>
+                <li>Interpersonal and team skills</li>
+                <li>Product analysis</li>
+              </ul>
+            </div>
+
+            <div class="ito-section">
+              <div class="ito-illu">Outputs</div>
+              <ul>
+                <li>Project scope statement</li>
+                <li>Project documents updates</li>
+              </ul>
+            </div>
+
+          </div>
+        </details>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 4. CREATE WBS -->
+<div class="row left">
+  <div class="block block-yellow">
+    <div class="block-num">4</div>
+    <div class="block-main">
+      <div class="block-icon">
+        <!-- Lightbulb icon -->
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+          <ellipse cx="12" cy="11" rx="7" ry="7" fill="#fffbe2" stroke="#ffd762" stroke-width="2"/>
+          <path d="M12 17v3" stroke="#ffd762" stroke-width="1.6" stroke-linecap="round"/>
+          <path d="M10 20h4" stroke="#ffd762" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+      </div>
+
+      <div>
+        <div class="block-title">CREATE WBS</div>
+        <div class="block-desc">Decompose project deliverables into manageable components.</div>
+
+        <details>
+          <summary>Details: Inputs / Tools & Techniques / Outputs</summary>
+          <div class="ito-panel">
+
+            <div class="ito-section">
+              <div class="ito-illu">Inputs</div>
+              <ul>
+                <li>Project management plan</li>
+                <li>Project documents</li>
+                <li>Enterprise environmental factors</li>
+                <li>Organizational process assets</li>
+              </ul>
+            </div>
+
+            <div class="ito-section">
+              <div class="ito-illu">Tools & Techniques</div>
+              <ul>
+                <li>Expert judgment</li>
+                <li>Decomposition</li>
+              </ul>
+            </div>
+
+            <div class="ito-section">
+              <div class="ito-illu">Outputs</div>
+              <ul>
+                <li>Scope baseline</li>
+                <li>Project documents updates</li>
+              </ul>
+            </div>
+
+          </div>
+        </details>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 5. VALIDATE SCOPE -->
+<div class="row right">
+  <div class="block block-cyan">
+    <div class="block-num">5</div>
+    <div class="block-main">
+      <div class="block-icon">
+        <!-- Monitor icon -->
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+          <rect x="3" y="6" width="18" height="10" rx="2" fill="#e5f8ff" stroke="#56d0fa" stroke-width="2"/>
+          <rect x="7" y="19" width="10" height="2" rx="1" fill="#56d0fa"/>
+        </svg>
+      </div>
+
+      <div>
+        <div class="block-title">VALIDATE SCOPE</div>
+        <div class="block-desc">Formalize acceptance of completed deliverables.</div>
+
+        <details>
+          <summary>Details: Inputs / Tools & Techniques / Outputs</summary>
+          <div class="ito-panel">
+
+            <div class="ito-section">
+              <div class="ito-illu">Inputs</div>
+              <ul>
+                <li>Project management plan</li>
+                <li>Project documents</li>
+                <li>Verified deliverables</li>
+                <li>Work performance data</li>
+              </ul>
+            </div>
+
+            <div class="ito-section">
+              <div class="ito-illu">Tools & Techniques</div>
+              <ul>
+                <li>Inspection</li>
+                <li>Decision making</li>
+              </ul>
+            </div>
+
+            <div class="ito-section">
+              <div class="ito-illu">Outputs</div>
+              <ul>
+                <li>Accepted deliverables</li>
+                <li>Work performance information</li>
+                <li>Change requests</li>
+                <li>Project documents updates</li>
+              </ul>
+            </div>
+
+          </div>
+        </details>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 6. CONTROL SCOPE -->
+<div class="row left">
+  <div class="block block-violet">
+    <div class="block-num">6</div>
+    <div class="block-main">
+      <div class="block-icon">
+        <!-- Pen/Edit -->
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+          <rect x="5" y="5" width="14" height="14" rx="3" fill="#f6f1fa" stroke="#b79cf1" stroke-width="2"/>
+          <path d="M16 8l-6.5 6.5" stroke="#b79cf1" stroke-width="1.7" stroke-linecap="round"/>
+          <path d="M15 7l2 2" stroke="#b79cf1" stroke-width="1.7" stroke-linecap="round"/>
+        </svg>
+      </div>
+
+      <div>
+        <div class="block-title">CONTROL SCOPE</div>
+        <div class="block-desc">Monitor status of the project and product scope and manage changes.</div>
+
+        <details>
+          <summary>Details: Inputs / Tools & Techniques / Outputs</summary>
+          <div class="ito-panel">
+
+            <div class="ito-section">
+              <div class="ito-illu">Inputs</div>
+              <ul>
+                <li>Project management plan</li>
+                <li>Project documents</li>
+                <li>Work performance data</li>
+                <li>Organizational process assets</li>
+              </ul>
+            </div>
+
+            <div class="ito-section">
+              <div class="ito-illu">Tools & Techniques</div>
+              <ul>
+                <li>Data analysis</li>
+              </ul>
+            </div>
+
+            <div class="ito-section">
+              <div class="ito-illu">Outputs</div>
+              <ul>
+                <li>Work performance information</li>
+                <li>Change requests</li>
+                <li>Project management plan updates</li>
+                <li>Project documents updates</li>
+              </ul>
+            </div>
+
+          </div>
+        </details>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
