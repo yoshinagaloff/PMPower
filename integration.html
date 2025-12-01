@@ -5,6 +5,135 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Project Integration</title>
   <link rel="stylesheet" href="style.css">
+
+  <!-- RESPONSIVE OVERRIDES (ipad / phone only) -->
+  <style>
+    /* Keep original styles from style.css intact.
+       These rules only add responsive behavior for small screens
+       and won't change desktop layout. */
+
+    /* Ensure block elements can shrink on small screens */
+    .wrap {
+      box-sizing: border-box;
+      padding-left: 12px;
+      padding-right: 12px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* On tablets (iPad portrait/landscape) */
+    @media screen and (max-width: 1024px) {
+      .wrap {
+        max-width: 980px;
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+      .stagger-container {
+        padding-left: 8px;
+        padding-right: 8px;
+      }
+      .row {
+        /* allow items to center for narrow widths while preserving original grouping */
+        justify-content: center !important;
+        padding-left: 6px;
+        padding-right: 6px;
+      }
+      .block {
+        width: 92% !important;
+        max-width: none !important;
+      }
+      .ito-panel {
+        flex-wrap: wrap;
+      }
+      .ito-section {
+        min-width: 220px;
+        width: 48%;
+        margin-bottom: 10px;
+      }
+    }
+
+    /* Phones */
+    @media screen and (max-width: 600px) {
+      html, body {
+        -webkit-text-size-adjust: 100%;
+      }
+      .wrap {
+        width: 100%;
+        padding: 10px;
+      }
+      header {
+        padding: 16px 6px;
+      }
+      .header-title {
+        font-size: 20px;
+        line-height: 1.15;
+      }
+      .header-desc {
+        font-size: 13px;
+      }
+      .btn-group {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        align-items: stretch;
+      }
+      .btn {
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      /* Convert blocks to vertical stacking to keep readability */
+      .row {
+        display: block;
+        margin-bottom: 18px;
+      }
+      .block {
+        display: block;
+        width: 100% !important;
+        padding: 14px !important;
+        border-radius: 12px !important;
+      }
+      .block-main {
+        margin-left: 0 !important;
+      }
+      .block-icon {
+        margin-bottom: 10px;
+      }
+      .ito-panel {
+        display: block;
+      }
+      .ito-section {
+        width: 100% !important;
+        min-width: 0;
+        margin-bottom: 8px;
+      }
+
+      /* Make details summary easier to tap */
+      details summary {
+        padding: 10px 6px;
+      }
+
+      /* Reduce excessive shadows/spacing on small devices */
+      .block {
+        box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      }
+
+      /* Tune font sizes for mobile */
+      .block-title { font-size: 16px; }
+      .block-desc  { font-size: 13px; color: #444; }
+      .ito-illu    { font-size: 14px; }
+      ul { font-size: 13px; margin: 6px 0; padding-left: 18px; }
+    }
+
+    /* Very small phones */
+    @media screen and (max-width: 360px) {
+      .header-title { font-size: 18px; }
+      .block-title { font-size: 15px; }
+      .block-desc { font-size: 12px; }
+      ul { font-size: 12px; }
+      details summary { font-size: 14px; }
+    }
+  </style>
 </head>
 <body>
 <div class="wrap">
